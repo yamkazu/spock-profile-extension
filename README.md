@@ -46,15 +46,19 @@ class Foo {
 output such as:
 
 ```
-%      calls  total ms  ms/call  min ms  max ms  method              class                                          
-40.19      1     93.18    93.18   93.18   93.18  doLongTask          Bar                                            
-37.55    100     87.05     0.87    0.42   10.61  doShortTask         Foo                                            
-21.97      1     50.94    50.94   50.94   50.94  start               YourApp                                        
- 0.07      1      0.17     0.17    0.17    0.17  ctor                YourApp                                        
- 0.07      1      0.16     0.16    0.16    0.16  setThrownException  org.spockframework.runtime.SpecificationContext
- 0.05      1      0.13     0.13    0.13    0.13  ctor                Bar                                            
- 0.05      1      0.12     0.12    0.12    0.12  ctor                Foo                                            
- 0.03      1      0.07     0.07    0.07    0.07  leaveScope          org.spockframework.mock.runtime.MockController 
- 0.02      1      0.04     0.04    0.04    0.04  getMockController   org.spockframework.runtime.SpecificationContext
+%      calls  total ms  ms/call  min ms  max ms  method       class
+42.89      1     27.57    27.57   27.57   27.57  doLongTask   Bar
+41.76    100     26.84     0.27    0.25    0.97  doShortTask  Foo
+14.94      1      9.60     9.60    9.60    9.60  start        YourApp
+ 0.16      1      0.10     0.10    0.10    0.10  ctor         YourApp
+ 0.13      1      0.09     0.09    0.09    0.09  ctor         Bar
+ 0.12      1      0.08     0.08    0.08    0.08  ctor         Foo
 ```
 
+If you would like to set a options that you can use `@Profile` attributes:
+
+```
+@Profile(includeMethods = ["*.ctor"], excludeMethods = ["java.*", "groovy.*"])
+```
+
+Please see [this page](http://nagaimasato.blogspot.jp/2013/04/gprof-020-is-out.html) for the option details.

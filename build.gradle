@@ -13,8 +13,8 @@ configurations {
 dependencies {
     groovy 'org.codehaus.groovy:groovy-all:2.1.1'
 
-    compile fileTree(dir: './lib', includes: ['*.jar'])
     compile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    compile 'org.gperfutils:gprof:0.2.0'
 }
 
 task makeDirs(description: 'make all dirs for project setup') << {
